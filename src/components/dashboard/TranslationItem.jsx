@@ -172,6 +172,7 @@ function TranslationItem({
               onChange={onEditFieldChange}
               placeholder="English"
               direction="ltr"
+              language="English"
             />
 
             {/* Persian */}
@@ -183,6 +184,7 @@ function TranslationItem({
               onChange={onEditFieldChange}
               placeholder="فارسی"
               direction="rtl"
+              language="فارسی"
             />
 
             {/* French */}
@@ -194,6 +196,7 @@ function TranslationItem({
               onChange={onEditFieldChange}
               placeholder="Français"
               direction="ltr"
+              language="Français"
             />
 
             {/* Actions */}
@@ -283,7 +286,7 @@ function TranslationItem({
 
                   <button
                     type="button"
-                    onClick={() => onDelete(item.id, item.key)}
+                    onClick={() => onDelete(item.id)}
                     title="حذف ترجمه"
                     className="
                       flex
@@ -367,10 +370,28 @@ function TranslationCell({
   onChange,
   placeholder,
   direction,
+  language,
 }) {
   if (editing) {
     return (
-      <div className="flex min-w-0 items-center justify-center">
+      <div className="flex min-w-0 flex-col items-center gap-2">
+        {/* Mobile Language Badge */}
+        <span
+          className="
+            self-start
+            rounded-full
+            bg-slate-100
+            px-2
+            py-1
+            text-[10px]
+            font-semibold
+            text-slate-500
+            md:hidden
+          "
+        >
+          {language}
+        </span>
+
         <input
           value={editFormData[field] || ""}
           onChange={(event) =>
@@ -402,7 +423,24 @@ function TranslationCell({
   }
 
   return (
-    <div className="flex min-w-0 items-center justify-center">
+    <div className="flex min-w-0 flex-col items-center gap-2">
+      {/* Mobile Language Badge */}
+      <span
+        className="
+          self-start
+          rounded-full
+          bg-slate-100
+          px-2
+          py-1
+          text-[10px]
+          font-semibold
+          text-slate-500
+          md:hidden
+        "
+      >
+        {language}
+      </span>
+
       <div
         dir={direction}
         title={value || undefined}

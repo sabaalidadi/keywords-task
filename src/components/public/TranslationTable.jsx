@@ -9,13 +9,16 @@ function TranslationTable({
   remainingLanguages,
   onLanguageChange,
 }) {
+  const firstLanguage = remainingLanguages[0];
+  const secondLanguage = remainingLanguages[1];
+
   return (
     <div className="rounded-2xl border border-slate-100 bg-white p-6 shadow-sm">
       <div className="overflow-x-auto">
         <table className="w-full border-collapse text-sm">
           <thead>
             <tr className="border-b border-slate-100 text-center text-xs font-semibold text-slate-400">
-              {/* Main Language */}
+              {/* Selected Language */}
               <th className="px-4 py-3 text-center">
                 <LanguageSelector
                   value={currentLang}
@@ -23,65 +26,58 @@ function TranslationTable({
                 />
               </th>
 
-              {/* Remaining Languages */}
+              {/* First Remaining Language */}
               <th className="px-4 py-3 text-center">
-                {remainingLanguages[0]?.name}
+                {firstLanguage?.name}
               </th>
 
-              <th className="px-4 py-3 text-center">
-                {remainingLanguages[1]?.name}
+              {/* Second Remaining Language - Desktop Only */}
+              <th className="hidden px-4 py-3 text-center md:table-cell">
+                {secondLanguage?.name}
               </th>
             </tr>
           </thead>
 
           <tbody className="divide-y divide-slate-100">
-            {keywords.map((item) => {
-              const firstLanguage =
-                remainingLanguages[0];
-
-              const secondLanguage =
-                remainingLanguages[1];
-
-              return (
-                <tr
-                  key={item.id}
-                  className="transition hover:bg-slate-50/70"
+            {keywords.map((item) => (
+              <tr
+                key={item.id}
+                className="transition hover:bg-slate-50/70"
+              >
+                {/* Selected Language */}
+                <td
+                  className="px-4 py-3.5 text-center font-medium"
+                  dir={activeLang.dir}
                 >
-                  {/* Selected Language */}
-                  <td
-                    className="px-4 py-3.5 text-center font-medium"
-                    dir={activeLang.dir}
-                  >
-                    <TranslationValue
-                      value={item[currentLang]}
-                      variant="table"
-                    />
-                  </td>
+                  <TranslationValue
+                    value={item[currentLang]}
+                    variant="table"
+                  />
+                </td>
 
-                  {/* First Remaining */}
-                  <td
-                    className="px-4 py-3.5 text-center font-medium"
-                    dir={firstLanguage?.dir}
-                  >
-                    <TranslationValue
-                      value={item[firstLanguage?.code]}
-                      variant="table"
-                    />
-                  </td>
+                {/* First Remaining Language */}
+                <td
+                  className="px-4 py-3.5 text-center font-medium"
+                  dir={firstLanguage?.dir}
+                >
+                  <TranslationValue
+                    value={item[firstLanguage?.code]}
+                    variant="table"
+                  />
+                </td>
 
-                  {/* Second Remaining */}
-                  <td
-                    className="px-4 py-3.5 text-center font-medium"
-                    dir={secondLanguage?.dir}
-                  >
-                    <TranslationValue
-                      value={item[secondLanguage?.code]}
-                      variant="table"
-                    />
-                  </td>
-                </tr>
-              );
-            })}
+                {/* Second Remaining Language - Desktop Only */}
+                <td
+                  className="hidden px-4 py-3.5 text-center font-medium md:table-cell"
+                  dir={secondLanguage?.dir}
+                >
+                  <TranslationValue
+                    value={item[secondLanguage?.code]}
+                    variant="table"
+                  />
+                </td>
+              </tr>
+            ))}
           </tbody>
         </table>
       </div>

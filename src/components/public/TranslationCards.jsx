@@ -12,22 +12,20 @@ function TranslationCards({
   return (
     <div className="space-y-5">
       {/* Language Selector */}
-      <div className="flex flex-col gap-4 rounded-2xl border border-slate-100 bg-white p-5 shadow-sm sm:flex-row sm:items-center sm:justify-between">
-        <div>
-          <h3 className="text-sm font-bold text-slate-800">
-            زبان اصلی نمایش
-          </h3>
+<div className="flex min-w-0 flex-col gap-4 rounded-2xl border border-slate-100 bg-white p-5 shadow-sm sm:flex-row sm:items-center sm:justify-between">
+  <div className="min-w-0">
+    <h3 className="text-sm font-bold text-slate-800">
+      زبان اصلی نمایش
+    </h3>
+  </div>
 
-          <p className="mt-1 text-xs text-slate-400">
-            زبان اصلی کارت‌ها را انتخاب کنید.
-          </p>
-        </div>
-
-        <LanguageSelector
-          value={currentLang}
-          onChange={onLanguageChange}
-        />
-      </div>
+  <div className="w-full min-w-0 sm:w-auto">
+    <LanguageSelector
+      value={currentLang}
+      onChange={onLanguageChange}
+    />
+  </div>
+</div>
 
       {/* Cards */}
       {keywords.length === 0 ? (

@@ -17,6 +17,7 @@ function App() {
         : "text-slate-500 hover:text-slate-900"
     }`;
 
+    // localStorage.removeItem('app_translation_keywords')
   return (
     <>
       <div
@@ -52,7 +53,7 @@ function App() {
         </div>
       </div>
 
-      ```jsx
+
 <Toaster
   position="top-center"
   reverseOrder={false}
