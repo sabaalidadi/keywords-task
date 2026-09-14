@@ -3,8 +3,10 @@
 import { useState } from "react";
 import { Formik, Form, useField } from "formik";
 import validationSchema from "../../validation/keywordValidator";
+import { useDashboardContext } from "../../context/DashboardContext";
 
-function TranslationForm({ onSubmit }) {
+function TranslationForm() {
+  const { handleAddTranslation } = useDashboardContext();
   const [invalidFields, setInvalidFields] = useState({
     en: false,
     fa: false,
@@ -71,7 +73,7 @@ function TranslationForm({ onSubmit }) {
 
             setFormError("");
 
-            onSubmit(values);
+            handleAddTranslation(values);
 
             resetForm();
           }}

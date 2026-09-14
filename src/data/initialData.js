@@ -1,4 +1,4 @@
-// src/data/initialData.js
+
 export const AVAILABLE_LANGUAGES = [
   { code: 'fa', name: 'فارسی' },
   { code: 'en', name: 'English' },

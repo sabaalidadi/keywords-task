@@ -34,13 +34,16 @@ function UploadIcon() {
   );
 }
 
-function DashboardToolbar({ fileInputRef, onExport, onImport }) {
+import { useDashboardContext } from "../../context/DashboardContext";
+
+function DashboardToolbar() {
+  const { fileInputRef, handleExportJSON, handleImportJSON } = useDashboardContext();
   return (
     <section className="overflow-hidden">
       <div className="flex items-center gap-2">
         <button
           type="button"
-          onClick={onExport}
+          onClick={handleExportJSON}
           className="
             inline-flex
             items-center
@@ -95,7 +98,7 @@ function DashboardToolbar({ fileInputRef, onExport, onImport }) {
           ref={fileInputRef}
           type="file"
           accept=".json,application/json"
-          onChange={onImport}
+          onChange={handleImportJSON}
           className="hidden"
         />
       </div>

@@ -16,7 +16,7 @@ function App() {
         : "text-slate-500 hover:text-slate-900"
     }`;
 
-  // localStorage.removeItem('app_translation_keywords')
+  // localStorage.removeItem('keywords')
   
   return (
     <>

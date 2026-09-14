@@ -1,4 +1,7 @@
-function DeleteDialog({ open, keyName, onCancel, onConfirm }) {
+import { useDashboardContext } from "../../context/DashboardContext";
+
+function DeleteDialog({ open, keyName, onCancel }) {
+  const { handleConfirmDelete } = useDashboardContext();
   if (!open) {
     return null;
   }
@@ -81,7 +84,7 @@ function DeleteDialog({ open, keyName, onCancel, onConfirm }) {
 
           <button
             type="button"
-            onClick={onConfirm}
+            onClick={handleConfirmDelete}
             className="
               rounded-lg
               bg-rose-600

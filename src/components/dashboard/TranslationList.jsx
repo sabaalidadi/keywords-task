@@ -1,20 +1,11 @@
 import SearchInput from "../SearchInput";
 import TranslationItem from "./TranslationItem";
 import EmptyState from "./EmptyState";
+import { useDashboardContext } from "../../context/DashboardContext";
 
-function TranslationList({
-  items,
-  totalCount,
-  searchQuery,
-  onSearch,
-  editingId,
-  editFormData,
-  onStartEdit,
-  onSaveEdit,
-  onCancelEdit,
-  onEditFieldChange,
-  onDelete,
-}) {
+function TranslationList() {
+  const { filteredKeywords: items, keywords, searchQuery, setSearchQuery, editingId, editFormData, handleStartEdit, handleSaveEdit, handleCancelEdit, handleEditFieldChange, handleDeleteClick } = useDashboardContext();
+  const totalCount = keywords.length;
   const hasSearch = Boolean(searchQuery.trim());
 
   return (
@@ -38,7 +29,7 @@ function TranslationList({
 
           <SearchInput
             value={searchQuery}
-            onChange={onSearch}
+            onChange={setSearchQuery}
             placeholder="جستجو در ترجمه‌ها..."
           />
         </div>
@@ -81,11 +72,11 @@ function TranslationList({
                 item={item}
                 editingId={editingId}
                 editFormData={editFormData}
-                onStartEdit={onStartEdit}
-                onSaveEdit={onSaveEdit}
-                onCancelEdit={onCancelEdit}
-                onEditFieldChange={onEditFieldChange}
-                onDelete={onDelete}
+                onStartEdit={handleStartEdit}
+                onSaveEdit={handleSaveEdit}
+                onCancelEdit={handleCancelEdit}
+                onEditFieldChange={handleEditFieldChange}
+                onDelete={handleDeleteClick}
               />
             ))}
           </div>
