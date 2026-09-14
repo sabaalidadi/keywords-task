@@ -1,5 +1,3 @@
-// src/components/SortableKeywordItem.jsx
-
 import { useSortable } from "@dnd-kit/sortable";
 import { CSS } from "@dnd-kit/utilities";
 
@@ -31,16 +29,8 @@ function SortableKeywordItem({ item, children }) {
         relative
         transition-all
         duration-200
-        ${
-          isDragging
-            ? "scale-[0.99] opacity-60"
-            : "opacity-100"
-        }
-        ${
-          isFocused
-            ? "rounded-xl ring-2 ring-sky-500 ring-offset-2"
-            : ""
-        }
+        ${isDragging ? "scale-[0.99] opacity-60" : "opacity-100"}
+        ${isFocused ? "rounded-xl ring-2 ring-sky-500 ring-offset-2" : ""}
       `}
     >
       {children({

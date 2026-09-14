@@ -1,4 +1,3 @@
-
 function DownloadIcon() {
   return (
     <svg
@@ -35,15 +34,10 @@ function UploadIcon() {
   );
 }
 
-function DashboardToolbar({
-  fileInputRef,
-  onExport,
-  onImport,
-}) {
+function DashboardToolbar({ fileInputRef, onExport, onImport }) {
   return (
     <section className="overflow-hidden">
       <div className="flex items-center gap-2">
-        {/* Export JSON */}
         <button
           type="button"
           onClick={onExport}
@@ -71,7 +65,6 @@ function DashboardToolbar({
           خروجی JSON
         </button>
 
-        {/* Import JSON */}
         <button
           type="button"
           onClick={() => fileInputRef.current?.click()}
@@ -111,4 +104,3 @@ function DashboardToolbar({
 }
 
 export default DashboardToolbar;
-

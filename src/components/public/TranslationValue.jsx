@@ -1,10 +1,5 @@
-
-function TranslationValue({
-  value,
-  variant = "default",
-}) {
-  const hasTranslation =
-    value && value.trim() !== "";
+function TranslationValue({ value, variant = "default" }) {
+  const hasTranslation = value && value.trim() !== "";
 
   if (!hasTranslation) {
     return (
@@ -29,12 +24,7 @@ function TranslationValue({
     );
   }
 
-  return (
-    <span className="text-slate-800">
-      {value}
-    </span>
-  );
+  return <span className="text-slate-800">{value}</span>;
 }
 
 export default TranslationValue;
-

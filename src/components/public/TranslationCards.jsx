@@ -1,4 +1,3 @@
-
 import LanguageSelector from "./LanguageSelector";
 import TranslationValue from "./TranslationValue";
 
@@ -11,23 +10,16 @@ function TranslationCards({
 }) {
   return (
     <div className="space-y-5">
-      {/* Language Selector */}
-<div className="flex min-w-0 flex-col gap-4 rounded-2xl border border-slate-100 bg-white p-5 shadow-sm sm:flex-row sm:items-center sm:justify-between">
-  <div className="min-w-0">
-    <h3 className="text-sm font-bold text-slate-800">
-      زبان اصلی نمایش
-    </h3>
-  </div>
+      <div className="flex min-w-0 flex-col gap-4 rounded-2xl border border-slate-100 bg-white p-5 shadow-sm sm:flex-row sm:items-center sm:justify-between">
+        <div className="min-w-0">
+          <h3 className="text-sm font-bold text-slate-800">زبان اصلی نمایش</h3>
+        </div>
 
-  <div className="w-full min-w-0 sm:w-auto">
-    <LanguageSelector
-      value={currentLang}
-      onChange={onLanguageChange}
-    />
-  </div>
-</div>
+        <div className="w-full min-w-0 sm:w-auto">
+          <LanguageSelector value={currentLang} onChange={onLanguageChange} />
+        </div>
+      </div>
 
-      {/* Cards */}
       {keywords.length === 0 ? (
         <div className="rounded-2xl border border-slate-100 bg-white px-6 py-12 text-center shadow-sm">
           <div className="mx-auto mb-3 flex h-12 w-12 items-center justify-center rounded-full bg-slate-50 text-slate-400">
@@ -38,16 +30,9 @@ function TranslationCards({
               strokeWidth="1.8"
               className="h-6 w-6"
             >
-              <circle
-                cx="11"
-                cy="11"
-                r="6.5"
-              />
+              <circle cx="11" cy="11" r="6.5" />
 
-              <path
-                strokeLinecap="round"
-                d="m16 16 4 4"
-              />
+              <path strokeLinecap="round" d="m16 16 4 4" />
             </svg>
           </div>
 
@@ -62,8 +47,7 @@ function TranslationCards({
       ) : (
         <div className="grid grid-cols-1 gap-4 md:grid-cols-2 xl:grid-cols-3">
           {keywords.map((item) => {
-            const selectedText =
-              item[currentLang];
+            const selectedText = item[currentLang];
 
             return (
               <div
@@ -81,7 +65,6 @@ function TranslationCards({
                   hover:shadow-md
                 "
               >
-                {/* Main Translation */}
                 <div className="mb-4">
                   <div className="mb-2 flex items-center justify-between">
                     <span className="text-xs font-semibold text-slate-400">
@@ -108,9 +91,7 @@ function TranslationCards({
                       text-center
                     "
                   >
-                    <TranslationValue
-                      value={selectedText}
-                    />
+                    <TranslationValue value={selectedText} />
                   </div>
                 </div>
 
@@ -140,9 +121,7 @@ function TranslationCards({
                             text-center
                           "
                         >
-                          <TranslationValue
-                            value={text}
-                          />
+                          <TranslationValue value={text} />
                         </div>
                       </div>
                     );
@@ -158,4 +137,3 @@ function TranslationCards({
 }
 
 export default TranslationCards;
-

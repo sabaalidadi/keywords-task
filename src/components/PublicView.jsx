@@ -1,4 +1,3 @@
-
 import { useMemo, useState } from "react";
 import { AVAILABLE_LANGUAGES } from "../data/initialData";
 import { useAppContext } from "../context/AppContext";
@@ -14,9 +13,8 @@ function PublicView() {
   const [searchQuery, setSearchQuery] = useState("");
 
   const activeLangObj =
-    AVAILABLE_LANGUAGES.find(
-      (lang) => lang.code === currentLang,
-    ) || AVAILABLE_LANGUAGES[0];
+    AVAILABLE_LANGUAGES.find((lang) => lang.code === currentLang) ||
+    AVAILABLE_LANGUAGES[0];
 
   const remainingLanguages = AVAILABLE_LANGUAGES.filter(
     (lang) => lang.code !== currentLang,
@@ -31,9 +29,7 @@ function PublicView() {
 
     return keywords.filter((item) =>
       [item.fa, item.en, item.fr].some(
-        (value) =>
-          value &&
-          value.toLowerCase().includes(query),
+        (value) => value && value.toLowerCase().includes(query),
       ),
     );
   }, [keywords, searchQuery]);
@@ -44,7 +40,6 @@ function PublicView() {
 
   return (
     <div className="space-y-6">
-      {/* Header */}
       <PublicViewHeader
         searchQuery={searchQuery}
         onSearch={setSearchQuery}
@@ -55,10 +50,6 @@ function PublicView() {
       {/* Empty State */}
       {keywords.length === 0 ? (
         <div className="rounded-2xl border border-slate-100 bg-white p-12 text-center shadow-sm">
-          <div className="mx-auto mb-3 flex h-16 w-16 items-center justify-center rounded-full bg-slate-100 text-2xl">
-            📖
-          </div>
-
           <h3 className="mb-1 text-base font-bold text-slate-800">
             داده‌ای برای نمایش وجود ندارد
           </h3>
@@ -89,4 +80,3 @@ function PublicView() {
 }
 
 export default PublicView;
-

@@ -1,4 +1,3 @@
-
 import SearchInput from "../SearchInput";
 
 function PublicViewHeader({
@@ -14,14 +13,12 @@ function PublicViewHeader({
       </h2>
 
       <div className="flex items-center gap-2">
-        {/* Search */}
         <SearchInput
           value={searchQuery}
           onChange={onSearch}
           placeholder="جستجوی ترجمه..."
         />
 
-        {/* View Mode */}
         <div className="flex shrink-0 items-center rounded-xl bg-slate-100 p-1 text-xs text-slate-600">
           <button
             type="button"
@@ -69,4 +66,3 @@ function PublicViewHeader({
 }
 
 export default PublicViewHeader;
-

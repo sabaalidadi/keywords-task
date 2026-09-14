@@ -1,5 +1,3 @@
-// src/components/dashboard/TranslationList.jsx
-
 import SearchInput from "../SearchInput";
 import TranslationItem from "./TranslationItem";
 import EmptyState from "./EmptyState";
@@ -35,9 +33,7 @@ function TranslationList({
               </span>
             </div>
 
-            <p className="mt-1 text-xs text-slate-500">
-              مدیریت و ویرایش 
-            </p>
+            <p className="mt-1 text-xs text-slate-500">مدیریت و ویرایش</p>
           </div>
 
           <SearchInput
@@ -50,27 +46,26 @@ function TranslationList({
 
       {/* Column Header */}
       {items.length > 0 && (
-<div className="hidden border-b border-slate-100 bg-slate-50/70 px-5 py-3 md:grid md:grid-cols-[40px_1fr_1fr_1fr_90px] md:items-center md:gap-4">
-        
-                <div className="text-center text-[11px] font-bold uppercase tracking-wide text-slate-400">
-      {''}
-</div>
+        <div className="hidden border-b border-slate-100 bg-slate-50/70 px-5 py-3 md:grid md:grid-cols-[40px_1fr_1fr_1fr_90px] md:items-center md:gap-4">
+          <div className="text-center text-[11px] font-bold uppercase tracking-wide text-slate-400">
+            {""}
+          </div>
 
-        <div className="text-center text-[11px] font-bold uppercase tracking-wide text-slate-400">
-  English
-</div>
+          <div className="text-center text-[11px] font-bold uppercase tracking-wide text-slate-400">
+            English
+          </div>
 
-<div className="text-center text-[11px] font-bold text-slate-400">
-  فارسی
-</div>
+          <div className="text-center text-[11px] font-bold text-slate-400">
+            فارسی
+          </div>
 
-<div className="text-center text-[11px] font-bold uppercase tracking-wide text-slate-400">
-  Français
-</div>
+          <div className="text-center text-[11px] font-bold uppercase tracking-wide text-slate-400">
+            Français
+          </div>
 
-<div className="text-center text-[11px] font-bold text-slate-400">
-  عملیات
-</div>
+          <div className="text-center text-[11px] font-bold text-slate-400">
+            عملیات
+          </div>
         </div>
       )}
 

@@ -1,5 +1,3 @@
-// src/components/dashboard/TranslationItem.jsx
-
 import SortableKeywordItem from "../SortableKeywordItem";
 
 function EditIcon() {
@@ -47,11 +45,7 @@ function CheckIcon() {
       strokeWidth="1.8"
       className="h-4 w-4"
     >
-      <path
-        strokeLinecap="round"
-        strokeLinejoin="round"
-        d="m5 12 4 4L19 6"
-      />
+      <path strokeLinecap="round" strokeLinejoin="round" d="m5 12 4 4L19 6" />
     </svg>
   );
 }
@@ -76,11 +70,7 @@ function CloseIcon() {
 
 function DragIcon() {
   return (
-    <svg
-      viewBox="0 0 24 24"
-      fill="currentColor"
-      className="h-4 w-4"
-    >
+    <svg viewBox="0 0 24 24" fill="currentColor" className="h-4 w-4">
       <circle cx="8" cy="6" r="1.3" />
       <circle cx="16" cy="6" r="1.3" />
 
@@ -394,9 +384,7 @@ function TranslationCell({
 
         <input
           value={editFormData[field] || ""}
-          onChange={(event) =>
-            onChange(field, event.target.value)
-          }
+          onChange={(event) => onChange(field, event.target.value)}
           dir={direction}
           placeholder={placeholder}
           className="
@@ -449,11 +437,7 @@ function TranslationCell({
           truncate
           text-center
           text-sm
-          ${
-            value
-              ? "font-medium text-slate-700"
-              : "italic text-slate-300"
-          }
+          ${value ? "font-medium text-slate-700" : "italic text-slate-300"}
         `}
       >
         {value || "ترجمه‌ای ثبت نشده است"}
@@ -461,6 +445,5 @@ function TranslationCell({
     </div>
   );
 }
-
 
 export default TranslationItem;

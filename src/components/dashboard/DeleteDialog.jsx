@@ -1,11 +1,4 @@
-// src/components/dashboard/DeleteDialog.jsx
-
-function DeleteDialog({
-  open,
-  keyName,
-  onCancel,
-  onConfirm,
-}) {
+function DeleteDialog({ open, keyName, onCancel, onConfirm }) {
   if (!open) {
     return null;
   }
@@ -24,7 +17,6 @@ function DeleteDialog({
       aria-labelledby="delete-dialog-title"
     >
       <div className="w-full max-w-md overflow-hidden rounded-2xl bg-white shadow-2xl">
-        {/* Header */}
         <div className="border-b border-slate-100 px-6 py-5">
           <div className="flex items-start gap-3">
             <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-xl bg-rose-50 text-rose-600">
@@ -58,18 +50,14 @@ function DeleteDialog({
           </div>
         </div>
 
-        {/* Content */}
         <div className="px-6 py-5">
           <p className="text-sm leading-7 text-slate-600">
             آیا از حذف عبارت{" "}
-            <span className="font-bold text-slate-900">
-              «{keyName}»
-            </span>{" "}
+            <span className="font-bold text-slate-900">«{keyName}»</span>{" "}
             اطمینان دارید؟
           </p>
         </div>
-
-        {/* Actions */}
+        
         <div className="flex justify-end gap-2 border-t border-slate-100 bg-slate-50/50 px-6 py-4">
           <button
             type="button"

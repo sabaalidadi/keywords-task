@@ -1,4 +1,3 @@
-// src/App.jsx
 import { Navigate, NavLink, Route, Routes } from "react-router-dom";
 import PublicView from "./components/PublicView";
 import Dashboard from "./components/Dashboard";
@@ -17,15 +16,12 @@ function App() {
         : "text-slate-500 hover:text-slate-900"
     }`;
 
-    // localStorage.removeItem('app_translation_keywords')
+  // localStorage.removeItem('app_translation_keywords')
+  
   return (
     <>
-      <div
-        dir="rtl"
-        className="min-h-screen bg-white text-slate-800"
-      >
+      <div dir="rtl" className="min-h-screen bg-white text-slate-800">
         <div className="max-w-5xl mx-auto px-4 md:px-8">
-
           <header className="h-20 flex items-center justify-between border-b border-slate-100">
             <h1 className="text-base font-semibold text-slate-900">
               مدیریت ترجمه
@@ -49,27 +45,23 @@ function App() {
               <Route path="*" element={<Navigate to="/" replace />} />
             </Routes>
           </main>
-
         </div>
       </div>
 
-
-<Toaster
-  position="top-center"
-  reverseOrder={false}
-  toastOptions={{
-    success: {
-      style: {
-        background: "#16a34a",
-        color: "#fff",
-      },
-    },
-  }}
-/>
-
+      <Toaster
+        position="top-center"
+        reverseOrder={false}
+        toastOptions={{
+          success: {
+            style: {
+              background: "#16a34a",
+              color: "#fff",
+            },
+          },
+        }}
+      />
     </>
   );
 }
 
 export default App;
-

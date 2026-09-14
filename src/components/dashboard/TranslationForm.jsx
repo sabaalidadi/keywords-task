@@ -1,15 +1,8 @@
-
 // src/components/dashboard/TranslationForm.jsx
 
 import { useState } from "react";
 import { Formik, Form, useField } from "formik";
-import * as Yup from "yup";
-
-const validationSchema = Yup.object({
-  fa: Yup.string(),
-  en: Yup.string(),
-  fr: Yup.string(),
-});
+import validationSchema from "../../validation/keywordValidator";
 
 function TranslationForm({ onSubmit }) {
   const [invalidFields, setInvalidFields] = useState({
@@ -22,7 +15,6 @@ function TranslationForm({ onSubmit }) {
 
   return (
     <section className="rounded-2xl border border-slate-200 bg-white shadow-sm">
-      {/* Header */}
       <div className="border-b border-slate-100 px-5 py-4">
         <div className="flex items-center gap-3">
           <div className="flex h-9 w-9 items-center justify-center rounded-lg bg-sky-50 text-sky-600">
@@ -47,7 +39,6 @@ function TranslationForm({ onSubmit }) {
         </div>
       </div>
 
-      {/* Form */}
       <div className="p-5">
         <Formik
           initialValues={{
@@ -58,10 +49,9 @@ function TranslationForm({ onSubmit }) {
           validationSchema={validationSchema}
           onSubmit={(values, { resetForm }) => {
             const filledFields = [values.fa, values.en, values.fr].filter(
-              (value) => value && value.trim().length > 0
+              (value) => value && value.trim().length > 0,
             );
 
-            // حداقل دو زبان باید پر شده باشد
             if (filledFields.length < 2) {
               setInvalidFields({
                 en: true,
@@ -70,11 +60,9 @@ function TranslationForm({ onSubmit }) {
               });
 
               setFormError("لطفاً حداقل دو زبان را تکمیل کنید");
-
               return;
             }
 
-            // فرم معتبر است
             setInvalidFields({
               en: false,
               fa: false,
@@ -90,7 +78,6 @@ function TranslationForm({ onSubmit }) {
         >
           <Form className="space-y-4">
             <div className="grid grid-cols-1 gap-4 md:grid-cols-4">
-              {/* English */}
               <TranslationField
                 name="en"
                 label="English"
@@ -105,7 +92,6 @@ function TranslationForm({ onSubmit }) {
                 }}
               />
 
-              {/* فارسی */}
               <TranslationField
                 name="fa"
                 label="فارسی"
@@ -120,7 +106,6 @@ function TranslationForm({ onSubmit }) {
                 }}
               />
 
-              {/* Français */}
               <TranslationField
                 name="fr"
                 label="Français"
@@ -135,7 +120,6 @@ function TranslationForm({ onSubmit }) {
                 }}
               />
 
-              {/* Submit Button */}
               <button
                 type="submit"
                 className="
@@ -171,16 +155,12 @@ function TranslationForm({ onSubmit }) {
                     d="M12 5v14M5 12h14"
                   />
                 </svg>
-
                 افزودن ترجمه
               </button>
             </div>
 
-            {/* Form Error */}
             {formError && (
-              <p className="text-xs font-medium text-rose-600">
-                {formError}
-              </p>
+              <p className="text-xs font-medium text-rose-600">{formError}</p>
             )}
           </Form>
         </Formik>
@@ -201,7 +181,6 @@ function TranslationField({
 
   return (
     <div className="space-y-1.5">
-      {/* Label */}
       <label
         htmlFor={name}
         className="block text-xs font-semibold text-slate-700"
@@ -209,7 +188,6 @@ function TranslationField({
         {label}
       </label>
 
-      {/* Input */}
       <input
         {...field}
         id={name}
@@ -217,11 +195,7 @@ function TranslationField({
         dir={direction}
         placeholder={placeholder}
         onChange={(event) => {
-          // مهم:
-          // مقدار input را به Formik می‌دهیم
           field.onChange(event);
-
-          // فقط خطای همین input را حذف می‌کنیم
           onChange?.();
         }}
         className={`

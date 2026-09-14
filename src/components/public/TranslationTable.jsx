@@ -18,7 +18,6 @@ function TranslationTable({
         <table className="w-full border-collapse text-sm">
           <thead>
             <tr className="border-b border-slate-100 text-center text-xs font-semibold text-slate-400">
-              {/* Selected Language */}
               <th className="px-4 py-3 text-center">
                 <LanguageSelector
                   value={currentLang}
@@ -26,7 +25,6 @@ function TranslationTable({
                 />
               </th>
 
-              {/* First Remaining Language */}
               <th className="px-4 py-3 text-center">
                 {firstLanguage?.name}
               </th>

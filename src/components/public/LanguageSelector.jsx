@@ -1,10 +1,6 @@
-
 import { AVAILABLE_LANGUAGES } from "../../data/initialData";
 
-function LanguageSelector({
-  value,
-  onChange,
-}) {
+function LanguageSelector({ value, onChange }) {
   return (
     <div className="w-full min-w-0 sm:w-auto">
       <select
@@ -37,10 +33,7 @@ function LanguageSelector({
         "
       >
         {AVAILABLE_LANGUAGES.map((lang) => (
-          <option
-            key={lang.code}
-            value={lang.code}
-          >
+          <option key={lang.code} value={lang.code}>
             {lang.name}
           </option>
         ))}
@@ -50,4 +43,3 @@ function LanguageSelector({
 }
 
 export default LanguageSelector;
-

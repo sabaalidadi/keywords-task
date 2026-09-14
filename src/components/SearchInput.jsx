@@ -1,10 +1,7 @@
-
-// src/components/SearchInput.jsx
-
 function SearchInput({ value, onChange, placeholder = "جستجو..." }) {
   return (
     <div className="relative w-full sm:w-64">
-      {/* Search Icon */}
+      {/*Icon */}
       <div className="pointer-events-none absolute right-3 top-1/2 -translate-y-1/2 text-slate-400">
         <svg
           viewBox="0 0 24 24"
@@ -14,10 +11,7 @@ function SearchInput({ value, onChange, placeholder = "جستجو..." }) {
           className="h-4 w-4"
         >
           <circle cx="11" cy="11" r="6.5" />
-          <path
-            strokeLinecap="round"
-            d="m16 16 4 4"
-          />
+          <path strokeLinecap="round" d="m16 16 4 4" />
         </svg>
       </div>
 
